@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Create New API</h1>
+  <form (ngSubmit)="createApi()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" class="form-control" [(ngModel)]="apiData.name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" [(ngModel)]="apiData.description" name="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="endpoints">Endpoints</label>
+      <input type="text" id="endpoints" class="form-control" [(ngModel)]="apiData.endpoints" name="endpoints" required>
+    </div>
+    <div class="form-group">
+      <label for="documentation">Documentation</label>
+      <textarea id="documentation" class="form-control" [(ngModel)]="apiData.documentation" name="documentation" required></textarea>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" id="free" class="form-check-input" [(ngModel)]="apiData.free" name="free">
+      <label for="free" class="form-check-label">Free</label>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Create API</button>
+  </form>
+</div>

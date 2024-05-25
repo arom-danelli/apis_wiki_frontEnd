@@ -1,0 +1,25 @@
+/* Estilo básico para o layout */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  header, footer {
+    background-color: #f8f9fa;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  .navbar {
+    margin-bottom: 20px;
+  }
+  
+  .footer {
+    text-align: center;
+  }
+  
