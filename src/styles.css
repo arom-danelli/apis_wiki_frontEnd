@@ -2,3 +2,42 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* styles.css */
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.card-header.bg-success {
+    background-color: #28a745 !important;
+}
+
+.card-header.bg-pink {
+    background-color: #e83e8c !important;
+}
+
+.card-header.bg-info {
+    background-color: #17a2b8 !important;
+}
+
+.card-img-top {
+    height: auto;
+    width: 100%;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.bg-warning {
+    background-color: #ffc107 !important;
+}

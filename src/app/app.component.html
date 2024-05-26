@@ -1,39 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wiki API</title>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Wiki API</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/apis">APIs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/create-api">Create API</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/register">Register</a>
-        </li>
-      </ul>
+<!-- app.component.html -->
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <div class="container">
+        <a class="navbar-brand" href="#">Wiki Api</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/apis">Api</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/create-api">Cadastrar Api</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/about">Sobre</a>
+                </li>
+            </ul>
+            <!-- <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Log in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/register">Sign in</a>
+                </li>
+            </ul> -->
+        </div>
     </div>
-  </nav>
+</nav>
 
-  <div class="container mt-4">
+<div class="container mt-3">
     <router-outlet></router-outlet>
-  </div>
-</body>
-</html>
+</div>
