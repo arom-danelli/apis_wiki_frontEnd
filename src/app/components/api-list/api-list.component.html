@@ -1,27 +1,20 @@
 <div class="container">
-  <div class="filter">
-    <input (keyup)="applyFilter($event)" placeholder="Filter APIs">
+  <h1 class="mt-4 mb-4">Lista de APIs</h1>
+  <div class="alphabet-filter text-center mb-4">
+    <a *ngFor="let letter of alphabet" (click)="filterByLetter(letter)" class="alphabet-link">{{ letter }}</a>
   </div>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef> Description </th>
-      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let element">
-        <button (click)="goToDetail(element.id)" class="btn btn-primary">Ver mais</button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <div class="filter">
+    <input (keyup)="applyFilter($event)" placeholder="Filter APIs" class="form-control mb-4">
+  </div>
+  <div class="filter-info mb-4">
+    **Barra que irá conter alguns filtros estilo drop box**
+  </div>
+  <div *ngFor="let group of groupedApis | keyvalue">
+    <h3>{{group.key}}</h3>
+    <ul>
+      <li *ngFor="let api of group.value">
+        <a (click)="goToDetail(api.id)">{{ api.name }}</a>
+      </li>
+    </ul>
+  </div>
 </div>

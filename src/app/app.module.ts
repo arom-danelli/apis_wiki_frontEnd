@@ -9,7 +9,7 @@ import { ApiDetailComponent } from './components/api-detail/api-detail.component
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiCreateComponent } from './components/api-create/api-create.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -31,6 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
     RegisterComponent,
     ApiCreateComponent,
     
+    
   ],
   imports: [
     BrowserModule,
@@ -45,6 +46,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     MatButtonModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

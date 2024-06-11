@@ -1,0 +1,19 @@
+.card-header.bg-success {
+    background-color: #28a745 !important;
+}
+.card-header.bg-pink {
+    background-color: #e83e8c !important;
+}
+.card-header.bg-info {
+    background-color: #17a2b8 !important;
+}
+.card-img-top {
+    height: auto;
+    width: 100%;
+}
+.text-white {
+    color: #fff !important;
+}
+.bg-warning {
+    background-color: #ffc107 !important;
+}

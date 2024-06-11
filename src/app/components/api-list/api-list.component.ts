@@ -1,8 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { API } from '../../models/api';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,30 +8,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./api-list.component.css']
 })
 export class ApiListComponent implements OnInit {
+  apis: any[] = [];
+  groupedApis: { [key: string]: any[] } = {};
+  filteredApis: any[] = [];
+  alphabet: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
-  apis: API[] = [];
-  displayedColumns: string[] = ['name', 'description', 'actions'];
-  dataSource = new MatTableDataSource<API>(this.apis);
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  constructor(private apiService: ApiService,private router: Router) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
-    this.apiService.getApis().subscribe(data => {
+    this.apiService.getApis().subscribe((data: any) => {
       this.apis = data;
-      this.dataSource.data = this.apis;
-      this.dataSource.paginator = this.paginator;
+      this.filteredApis = this.apis;
+      this.groupApis();
     });
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  groupApis() {
+    this.groupedApis = this.filteredApis.reduce((acc, api) => {
+      const firstLetter = api.name.charAt(0).toUpperCase();
+      if (!acc[firstLetter]) {
+        acc[firstLetter] = [];
+      }
+      acc[firstLetter].push(api);
+      return acc;
+    }, {});
+  }
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+  applyFilter(event: any) {
+    const filterValue = event.target.value.toLowerCase();
+    this.filteredApis = this.apis.filter(api => api.name.toLowerCase().includes(filterValue));
+    this.groupApis();
+  }
+
+  filterByLetter(letter: string) {
+    this.filteredApis = this.apis.filter(api => api.name.charAt(0).toUpperCase() === letter);
+    this.groupApis();
   }
 
   goToDetail(id: number): void {

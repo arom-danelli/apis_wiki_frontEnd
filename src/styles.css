@@ -1,43 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
-/* styles.css */
-body {
-    background-color: #f8f9fa;
-}
-
-.navbar {
-    margin-bottom: 20px;
-}
-
-.card-header.bg-success {
-    background-color: #28a745 !important;
-}
-
-.card-header.bg-pink {
-    background-color: #e83e8c !important;
-}
-
-.card-header.bg-info {
-    background-color: #17a2b8 !important;
-}
-
-.card-img-top {
-    height: auto;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;    display: flex;
+    flex-direction: column;
+  }
+  
+  app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-}
-
-.container {
-    margin-top: 20px;
-}
-
-.text-white {
-    color: #fff !important;
-}
-
-.bg-warning {
-    background-color: #ffc107 !important;
-}
+  }
+  
+  .wrapper {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .gradient-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  

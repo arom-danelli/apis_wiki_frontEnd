@@ -1,30 +1,37 @@
+<!-- api-create.component.html -->
 <div class="container">
   <h1>Create New API</h1>
   <form (ngSubmit)="createApi()">
     <div class="form-group">
-      <label for="name">Name</label>
+      <label for="name">Título da API</label>
       <input type="text" id="name" class="form-control" [(ngModel)]="apiData.name" name="name" required>
     </div>
     <div class="form-group">
-      <label for="description">Description</label>
+      <label for="description">Breve Descrição sobre a API</label>
       <textarea id="description" class="form-control" [(ngModel)]="apiData.description" name="description" required></textarea>
     </div>
-    <div class="input-group">
-      <span class="input-group-text">With textarea</span>
-      <textarea class="form-control" aria-label="With textarea"></textarea>
-    </div>
+   
     <div class="form-group">
-      <label for="endpoints">Endpoints</label>
-      <input type="text" id="endpoints" class="form-control" [(ngModel)]="apiData.endpoints" name="endpoints" required>
+      <label for="endpoints">EndPoints</label>
+      <div *ngFor="let endpoint of apiData.endpoints; let i = index" class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="endpoint.url" name="endpointUrl{{i}}" placeholder="URL" required>
+        <input type="text" class="form-control" [(ngModel)]="endpoint.method" name="endpointMethod{{i}}" placeholder="Method" required>
+        <input type="text" class="form-control" [(ngModel)]="endpoint.description" name="endpointDescription{{i}}" placeholder="Description" required>
+        <div class="input-group-append">
+          <button class="btn btn-outline-danger" type="button" (click)="removeEndpoint(i)">Remove</button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-primary" (click)="addEndpoint()">Add Endpoint</button>
     </div>
+
     <div class="form-group">
-      <label for="documentation">Documentation</label>
+      <label for="documentation">Documentação da API</label>
       <textarea id="documentation" class="form-control" [(ngModel)]="apiData.documentation" name="documentation" required></textarea>
     </div>
     <div class="form-check">
       <input type="checkbox" id="free" class="form-check-input" [(ngModel)]="apiData.free" name="free">
-      <label for="free" class="form-check-label">Free</label>
+      <label for="free" class="form-check-label">É gratuito?</label>
     </div>
-    <button type="submit" class="btn btn-primary mt-3">Create API</button>
+    <button type="submit" class="btn btn-primary mt-3">Criar API</button>
   </form>
 </div>
