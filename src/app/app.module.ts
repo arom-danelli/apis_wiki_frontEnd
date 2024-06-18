@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
     LoginComponent,
     RegisterComponent,
     ApiCreateComponent,
+    ForgotPasswordComponent,
     
     
   ],

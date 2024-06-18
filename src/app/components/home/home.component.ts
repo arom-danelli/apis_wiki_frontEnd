@@ -18,8 +18,22 @@ export class HomeComponent implements OnInit {
     this.apiService.getApis().subscribe(
       (apis: API[]) => {
         if (apis.length > 0) {
-          this.featuredApi = apis[Math.floor(Math.random() * apis.length)];
-          this.topApis = apis.sort((a, b) => b.likes - a.likes).slice(0, 3);
+          this.topApis = apis.sort((a, b) => b.likes - a.likes).slice(0, 5);
+          this.latestApi = apis[apis.length - 1];
+
+          // Selecionar uma API aleatoriamente
+          const randomIndex = Math.floor(Math.random() * apis.length);
+          this.featuredApi = apis[randomIndex];
+        }
+      },
+      (error) => {
+        console.error('Error fetching APIs:', error);
+      }
+    );
+    this.apiService.getApis().subscribe(
+      (apis: API[]) => {
+        if (apis.length > 0) {
+          this.topApis = apis.sort((a, b) => b.likes - a.likes).slice(0, 5);
           this.latestApi = apis[apis.length - 1];
         }
       },

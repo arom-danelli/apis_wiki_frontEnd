@@ -1,8 +1,8 @@
-// api.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../services/enviroment';
+import { API } from '../models/api';
+import { environment } from './enviroment';
 
 @Injectable({
   providedIn: 'root'
@@ -45,8 +45,8 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/comments/${apiId}`);
   }
 
-  getRandomApis(limit: number = 5): Observable<any> {
-    return this.http.get(`${this.baseUrl}/apis/random?limit=${limit}`);
+  deleteApi(apiId: number): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.delete(`${this.baseUrl}/apis/${apiId}`, { headers });
   }
 }
-

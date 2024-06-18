@@ -36,9 +36,14 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('access_token');
+    localStorage.removeItem('user_id');
   }
 
   get isLoggedIn(): boolean {
     return localStorage.getItem('access_token') !== null;
+  }
+
+  getUserId(): number {
+    return parseInt(localStorage.getItem('user_id') || '0', 10);
   }
 }

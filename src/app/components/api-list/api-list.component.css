@@ -1,9 +1,21 @@
-.container {
-  max-width: 800px;
-  width: 100%;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+.alphabet-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.alphabet-link {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #007bff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.alphabet-link:hover {
+  background-color: #007bff;
+  color: #fff;
 }

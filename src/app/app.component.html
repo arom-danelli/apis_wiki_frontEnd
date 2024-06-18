@@ -1,34 +1,31 @@
-<!-- app.component.html -->
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <div class="container">
-        <a class="navbar-brand" routerLink="/">Wiki Api</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" routerLink="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/apis">Api</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/create-api">Cadastrar Api</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/about">Sobre</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item" *ngIf="authService.isLoggedIn">
-                    <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
-                </li>
-            </ul>
-        </div>
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Wiki Api</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active" *ngIf="authService.isLoggedIn">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isLoggedIn">
+          <a class="nav-link" routerLink="/apis">Api</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isLoggedIn">
+          <a class="nav-link" routerLink="/create-api">Cadastrar Api</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="!authService.isLoggedIn">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isLoggedIn">
+          <span class="navbar-text mr-3">{{ userEmail }}</span>
+          <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
-
-<main class="main-content">
-    <router-outlet></router-outlet>
-</main>
+<router-outlet></router-outlet>

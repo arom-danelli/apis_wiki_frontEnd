@@ -10,11 +10,17 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'api-wiki-frontend';
+  userEmail: string = '';
+
 
   constructor(public authService: AuthService, private router: Router) {}
 
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  isLoginRoute(): boolean {
+    return this.router.url === '/login';
   }
 }
